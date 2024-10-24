@@ -8,6 +8,8 @@
 *.so
 *.dylib
 
+*tmp
+
 # Test binary, built with `go test -c`
 *.test
 
@@ -21,5 +23,7 @@
 go.work
 go.work.sum
 
-# env file
+# env file .env*
 .env
+.env.staging
+.env.production
