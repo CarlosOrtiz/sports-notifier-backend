@@ -19,6 +19,9 @@ type Config struct {
 	AppHostServer string
 	AppPrefix     string
 	AppEnv        string
+	MongoDatabase string
+	MongoUser     string
+	MongoPassword string
 }
 
 var EnvConfig *Config
@@ -53,6 +56,9 @@ func Load() {
 		AppPort:       os.Getenv("APP_PORT"),
 		AppPrefix:     os.Getenv("APP_PREFIX"),
 		AppHostServer: os.Getenv("APP_HOST_SERVER"),
+		MongoDatabase: os.Getenv("MONGO_DB_DATABASE"),
+		MongoUser:     os.Getenv("MONGO_DB_USERNAME"),
+		MongoPassword: os.Getenv("MONGO_DB_PASSWORD"),
 		AppEnv:        env,
 	}
 }
@@ -65,6 +71,13 @@ func GetDSN() string {
 		" password=" + EnvConfig.DBPassword +
 		" dbname=" + EnvConfig.DBName +
 		" sslmode=" + EnvConfig.DBSSLMode
+}
+
+func GetMongoURI() string {
+	return "mongodb+srv://" + EnvConfig.MongoUser + ":" +
+		EnvConfig.MongoPassword +
+		"@" + EnvConfig.MongoDatabase +
+		".cobqrxh.mongodb.net/?retryWrites=true&w=majority&appName=" + EnvConfig.MongoDatabase
 }
 
 func IsFile(filename string) bool {

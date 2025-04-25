@@ -8,14 +8,25 @@ services:
       - 7001:7001
     depends_on:
       - postgres
+      - mongo
+    env_file:
+      - .env.production
 
   postgres:
     image: postgres
-    environment: 
-      POSTGRES_PASSWORD: mysecretpassword
-      POSTGRES_USER: postgres
-      POSTGRES_DB: mydatabase
+    env_file:
+      - .env.production
     ports:
       - "5432:5432"
     volumes:
       - ~/apps/postgres:/var/lib/postgresql/data
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    env_file:
+      - .env.production
+    volumes:
+      - ~/apps/mongo:/data/db

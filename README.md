@@ -2,7 +2,7 @@
   <a href="https://go.dev/" target="blank"><img src="https://cdn.worldvectorlogo.com/logos/golang-1.svg" width="320" alt="Nest Logo" /></a>
 </p>
   
-  <p align="center">It is api rest with <a href="https://go.dev/doc/install" target="blank">Go</a> as a programming language to notify users when their favorite teams play. It is called <b>sport-notifier</b></p>
+  <p align="center">It is api rest with <a href="https://go.dev/doc/install" target="blank">Go</a> as a programming language to notify users when their favorite teams play. It is called <b>sports-notifier</b></p>
 </p>
 
 # sports-notifier-backend
